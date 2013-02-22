@@ -1,63 +1,61 @@
-#include <iostream>
-#include <cstdlib>
+/*Programs 1-20
+Delos Reyes, Kashmir S.
+Koch, Roi John F.*/
+
+#ifndef projecy_H
+#define projecy_H
 #include "math.h"
 #include <string>
+#include <iostream>
+#include <cstdlib>
 #include <vector>
 #include <fstream>
 #include <sstream>
 #include <string.h>
 #include <iomanip>
 #include <set>
-#ifndef PROJECT_H
-#define PROJECT_H
 
-using namespace std;
 
-class Project
+class project
 {
     public:
-        Project();
-        virtual ~Project();
-        void multiples_of_3_and_5();
-        void even_fibonacce();
-        void largest_prime_factor();
-        void largest_palindrome_product();
-            void itoa(int n , char s[]);
-            void reverse(char s[]);
-        void smallest_multiple();
-        void sum_square_difference();
-        void _10001st_prime();
-        void largest_product_in_a_series();
-        void special_pytho_triplet();
-        void summation_of_prime();
-        //problem set 2:
+        project();
 
-        void largest_product_in_grid();
-        void highly_divisible_triangular_number();
-            int number_divisors(int number);
-        void large_sum();
-            int charToInt(char line);
-        void longest_collatz_sequence();
-            int collatz_func(long long num);
-        void diophantine_reciprocals_a();
-            void seive(int n);
-        void power_digit_sum();
-        void number_letter_counts();
-        void maximum_path_sum_I();
-            int maxsum (int num1, int num2, int up);
-            int path(int num, int tri[][15]);
-        void counting_sundays();
-            void setStartDate(int startDay, int startMonth, int startYear);
-            bool isLeapYear();
-            int daysInMonth();
-            void updateDate(int numDays);
-            int sundaysOnFirst(int endYear);
-        void factorial_digit_sum();
-            int sumDigits(string s);
+    void multiples_3_and_5();//done
+    void even_fibonacce();//done
+    void largest_prime_factor();//done
+    void largest_palindrome_product();//done
+    void smallest_multiple();//done
+    void sum_square_diff();//done
+    void the_10001st_prime();//done
+    void largest_product_in_series();//done
+    void special_pytho_triplet();//done
+    void summation_of_primes();//done
 
-            bool Prime_check(long num);
-    protected:
-    private:
+    void largest_product_in_grid();
+    void highly_divisible_triangular_number();
+                int number_divisors(int number);
+    void large_sum();
+                int charToInt(char line);
+    void longest_collatz_sequence();
+                int collatz_func(long long num);
+    void diophantine_reciprocals_a();
+                void seive(int n);
+    void power_digit_sum();
+    void number_letter_counts();
+    void maximum_path_sum_I();
+                int maxsum (int num1, int num2, int up);
+                int path(int num, int tri[][15]);
+    void counting_sundays();
+    void setStartDate(int startDay, int startMonth, int startYear);
+                bool isLeapYear();
+                int daysInMonth();
+    void updateDate(int numDays);
+                int sundaysOnFirst(int endYear);
+    void factorial_digit_sum();
+
+
+                bool prime_check(long num);
 };
 
-#endif // PROJECT_H
+#endif // project_H
