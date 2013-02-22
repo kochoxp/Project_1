@@ -1,112 +1,137 @@
 #include <iostream>
-#include <string>
 #include <cstdlib>
-#include "projecy.h"
+#include "Project.h"
 
 using namespace std;
+const string problem[]=
 
-
-
-const string PROBLEMS[]={
-    "Multiples of 3 and 5",
-    "Even Fibonacci",
-    "Largest Prime Factor",
-    "Largest Palindrom Product",
-    "Smallest Multiple",
-    "Sum and Square Difference",
-    "The 10001st Prime Number",
-    "Largest Product in Series",
-    "Special Phythagoran Triplet",
+    {"Multiples of 3 and 5",
+    "Even Fibonacci Numbers",
+    "Largest prime factor",
+    "Largest palindrome product",
+    "Smallest multiple",
+    "Sum square difference",
+    "10001st prime",
+    "Largest product in a series",
+    "Special Pythagorean triplet",
     "Summation of Primes",
-    "Exit"
-};
+    "Largest Product in a Grid",
+    "Highly divisible triangular number","Large sum",
+    "Longest Collatz sequence",
+    "Diophantine reciprocals",
+    "Power digit sum",
+    "Number letter counts",
+    "Maximum path sum I",
+    "Counting Sundays",
+    "Factorial digit sum",
+    "Exit"};
 
-const int NUM_PROBLEMS = 10;
+const int Num_Problems=20;
+const int Exit=Num_Problems+1;
 
-const int EXIT = NUM_PROBLEMS + 1;
-int main (){
-    projecy pro;
-    int ch=0;
-
+int main()
+{
     bool done=false;
+    int i=0, ch=0;
+    Project proj;
 
-    while (done == false){
+    while (done ==false ){
         system("cls");
-
-        for(int i=0; i<(NUM_PROBLEMS+1); i++){
-            cout << (i+1) << ". " << PROBLEMS[i]<< endl;
-
+        for(i=0; i<(Num_Problems+1); i++){
+            cout << (i+1) << ". " << problem[i] << endl;
         }
-
-    cout<< "Choose a problem: ";
-
-    cin >> ch;
-
-        switch (ch){
-
+        cout << "Choose a problem: ";
+        cin >> ch;
+        switch(ch){
+            
             case 1:
-
-                pro.multiples_3_and_5();
-                system("pause");
+                proj.multiples_of_3_and_5();
                 break;
-
+            
             case 2:
-                pro.even_fibonacce();
-                system("pause");
+                proj.even_fibonacce();
                 break;
-
+            
             case 3:
-
-                pro.largest_prime_factor();
-                system("pause");
+                proj.largest_prime_factor();
                 break;
-
+            
             case 4:
-
-                pro.largest_palindrome_product();
-                system("pause");
+                proj.largest_palindrome_product();
                 break;
-
+            
             case 5:
-
-                pro.smallest_multiple();
-                system("pause");
+                proj.smallest_multiple();
                 break;
-
+            
             case 6:
-
-                pro.sum_square_diff();
-                system("pause");
+                proj.sum_square_difference();
                 break;
-
+            
             case 7:
-
-                pro.the_10001st_prime();
-                system("pause");
+                proj._10001st_prime();
                 break;
-
+            
             case 8:
-
-                pro.largest_product_in_series();
-                system("pause");
+                proj.largest_product_in_a_series();
                 break;
-
+            
             case 9:
-
-                pro.special_pytho_triplet();
-                system("pause");
+                proj.special_pytho_triplet();
                 break;
-
+            
             case 10:
-
-                pro.summation_of_primes();
-                system("pause");
+                proj.summation_of_prime();
+                break;
+            
+            case 11:
+                proj.largest_product_in_grid();
+                break;
+            
+            case 12:
+                proj.highly_divisible_triangular_number();
+                break;
+            
+            case 13:
+                proj.large_sum();
+                break;
+            
+            case 14:
+                proj.longest_collatz_sequence();
+                break;
+            
+            case 15:
+                proj.diophantine_reciprocals_a();
+                break;
+            
+            case 16:
+                proj.power_digit_sum();
+                break;
+            
+            case 17:
+                proj.number_letter_counts();
+                break;
+            
+            case 18:
+                proj.maximum_path_sum_I();
+                break;
+            
+            case 19:
+                proj.counting_sundays();
+                break;
+            
+            case 20:
+                proj.factorial_digit_sum();
+                break;
+            
+            case Exit:
+                done=true;
                 break;
 
-            case EXIT:
-            done=true;
-            break;
         }
+        system("PAUSE");
+
     }
-return 0;
+
+    return 0;
 }
