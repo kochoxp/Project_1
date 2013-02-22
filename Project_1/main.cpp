@@ -1,136 +1,187 @@
+/*Programs 1-20
+Delos Reyes, Kashmir S.
+Koch, Roi John F.*/
+
 #include <iostream>
+#include <string>
 #include <cstdlib>
-#include "Project.h"
+#include "projecy.h"
 
 using namespace std;
-const string problem[]=
 
-    {"Multiples of 3 and 5",
-    "Even Fibonacci Numbers",
-    "Largest prime factor",
-    "Largest palindrome product",
-    "Smallest multiple",
-    "Sum square difference",
-    "10001st prime",
-    "Largest product in a series",
-    "Special Pythagorean triplet",
+
+
+const string PROBLEMS[]={
+    "Multiples of 3 and 5",
+    "Even Fibonacci",
+    "Largest Prime Factor",
+    "Largest Palindrome Product",
+    "Smallest Multiple",
+    "Sum and Square Difference",
+    "The 10001st Prime Number",
+    "Largest Product in Series",
+    "Special Phythagoran Triplet",
     "Summation of Primes",
     "Largest Product in a Grid",
-    "Highly divisible triangular number","Large sum",
-    "Longest Collatz sequence",
-    "Diophantine reciprocals",
-    "Power digit sum",
-    "Number letter counts",
-    "Maximum path sum I",
+    "Highly Divisible Triangular Number",
+    "Large Sum",
+    "Longest Collatz Sequence",
+    "Diophantine Reciprocals",
+    "Power Digit Sum",
+    "Number Letter Counts",
+    "Maximum Path Sum I",
     "Counting Sundays",
-    "Factorial digit sum",
-    "Exit"};
+    "Factorial Digit Sum",
+    "Exit"
+};
 
-const int Num_Problems=20;
-const int Exit=Num_Problems+1;
+const int NUM_PROBLEMS = 20;
 
-int main()
-{
+const int EXIT = NUM_PROBLEMS + 1;
+int main (){
+    project pro;
+    int ch=0;
+
     bool done=false;
-    int i=0, ch=0;
-    Project proj;
 
-    while (done ==false ){
+    while (done == false){
         system("cls");
-        for(i=0; i<(Num_Problems+1); i++){
-            cout << (i+1) << ". " << problem[i] << endl;
+
+        for(int i=0; i<(NUM_PROBLEMS+1); i++){
+            cout << (i+1) << ". " << PROBLEMS[i]<< endl;
+
         }
-        cout << "Choose a problem: ";
-        cin >> ch;
-        switch(ch){
-            
+
+    cout<< "Choose a problem: ";
+
+    cin >> ch;
+
+        switch (ch){
+
             case 1:
-                proj.multiples_of_3_and_5();
+
+                pro.multiples_3_and_5();
+                system("pause");
                 break;
-            
+
             case 2:
-                proj.even_fibonacce();
+                pro.even_fibonacce();
+                system("pause");
                 break;
-            
+
             case 3:
-                proj.largest_prime_factor();
+
+                pro.largest_prime_factor();
+                system("pause");
                 break;
-            
+
             case 4:
-                proj.largest_palindrome_product();
+
+                pro.largest_palindrome_product();
+                system("pause");
                 break;
-            
+
             case 5:
-                proj.smallest_multiple();
+
+                pro.smallest_multiple();
+                system("pause");
                 break;
-            
+
             case 6:
-                proj.sum_square_difference();
+
+                pro.sum_square_diff();
+                system("pause");
                 break;
-            
+
             case 7:
-                proj._10001st_prime();
+
+                pro.the_10001st_prime();
+                system("pause");
                 break;
-            
+
             case 8:
-                proj.largest_product_in_a_series();
+
+                pro.largest_product_in_series();
+                system("pause");
                 break;
-            
+
             case 9:
-                proj.special_pytho_triplet();
+
+                pro.special_pytho_triplet();
+                system("pause");
                 break;
-            
+
             case 10:
-                proj.summation_of_prime();
+
+                pro.summation_of_primes();
+                system("pause");
                 break;
-            
+
             case 11:
-                proj.largest_product_in_grid();
+
+                pro.largest_product_in_grid();
+                system("pause");
                 break;
-            
+
             case 12:
-                proj.highly_divisible_triangular_number();
+
+                pro.highly_divisible_triangular_number();
+                system("pause");
                 break;
-            
+
             case 13:
-                proj.large_sum();
+
+                pro.large_sum();
+                system("pause");
                 break;
-            
+
             case 14:
-                proj.longest_collatz_sequence();
+
+                pro.longest_collatz_sequence();
+                system("pause");
                 break;
-            
+
             case 15:
-                proj.diophantine_reciprocals_a();
+
+                pro.diophantine_reciprocals_a();
+                system("pause");
                 break;
-            
+
             case 16:
-                proj.power_digit_sum();
+
+                pro.power_digit_sum();
+                system("pause");
                 break;
-            
+
             case 17:
-                proj.number_letter_counts();
+
+                pro.number_letter_counts();
+                system("pause");
                 break;
-            
+
             case 18:
-                proj.maximum_path_sum_I();
+
+                pro.maximum_path_sum_I();
+                system("pause");
                 break;
-            
+
             case 19:
-                proj.counting_sundays();
+
+                pro.counting_sundays();
+                system("pause");
                 break;
-            
+
             case 20:
-                proj.factorial_digit_sum();
-                break;
-            
-            case Exit:
-                done=true;
+
+                pro.factorial_digit_sum();
+                system("pause");
                 break;
 
+
+            case EXIT:
+            done=true;
+            break;
         }
-        system("PAUSE");
-    }
-
-    return 0;
-}
+    }//closing bracket of while
+return 0;
+}// closing bracket of main
