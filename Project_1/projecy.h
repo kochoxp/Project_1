@@ -1,4 +1,4 @@
-/*Programs 1-20
+/*Programs 1-23
 Delos Reyes, Kashmir S.
 Koch, Roi John F.*/
 
@@ -52,10 +52,18 @@ class project
                 int daysInMonth();
     void updateDate(int numDays);
                 int sundaysOnFirst(int endYear);
+                int day,month,year;
     void factorial_digit_sum();
+    void name_score();
+    void first_1000_digit_fibonacci();
+        int right(int i);
+        int left(int i);
+        int convertCharToNum(char num1);
+        char convertNumToChar(int num1);
 
+     void truncable_primes();
+        bool prime_check(long num);
 
-                bool prime_check(long num);
 };
 
 #endif // project_H
