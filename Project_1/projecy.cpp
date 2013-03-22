@@ -1,9 +1,9 @@
+
 /*Programs 1-20
 Delos Reyes, Kashmir S.
 Koch, Roi John F.*/
 
 #include "projecy.h"
-    int day,month,year;
 #define MAX	200000
 #define LL	long long
 #define LIMIT	1000
@@ -12,6 +12,7 @@ Koch, Roi John F.*/
 #include <sstream>
 #include <fstream>
 #include <vector>
+
 
 
 using namespace std;
@@ -880,3 +881,289 @@ summation += array[j];
 cout << "The sum is: " << summation <<endl;
 
     }
+void project::name_score()
+{
+    ifstream ReadFile;
+    string line, temp = "";
+    string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    int range_c = alphabet.length();
+    int rank = 0, letter = 0, product = 0, range = 0, range_n = 0, i_n = 0;
+    long int sum = 0;
+    ReadFile.open("names.txt");
+    getline(ReadFile,line);
+    ReadFile.close();
+    range = line.length();
+
+    for(int i = 0; i < range; i++)
+    {
+        if(line.at(i) == '"')
+        {
+            range_n++;
+        }
+    }
+    range_n /=2;
+
+    string names[range_n];
+    for(int i = 1; i < range; i++)
+    {
+        if(line.at(i) == '"' || line.at(i) == ',')
+        {
+            if(temp != "")
+            {
+                names[i_n] = temp;
+                temp = "";
+                i_n++;
+            }
+            continue;
+        }
+        temp += line.at(i);
+    }
+
+    for(int i = 0; i < range_n; i++)
+    {
+        for(int k = 0; k < range_n;k++)
+        {
+            if(names[i] > names[k])
+            {
+                string temp_r = names[k];
+                names[k] = names[i];
+                names[i] = temp_r;
+            }
+        }
+    }
+
+    for(int i = 0; i < range_n; i++)
+    {
+        letter = 0;
+        rank = range_n - i;
+        int range_a = names[i].length();
+        for(int k = 0; k < range_a; k++)
+        {
+            for(int j = 0; j < range_c; j++)
+            {
+                if(names[i].at(k) == alphabet.at(j))
+                {
+                    letter += j + 1;
+                    break;
+                }
+            }
+        }
+
+        product = rank*letter;
+        sum += product;
+    }
+
+    cout << "The sum of the product of Rank and letter of names is: " <<  sum << endl;
+}
+
+int project::convertCharToNum(char num1)
+{
+    int num;
+    if(num1 == '1') num = 1;
+    else if(num1 == '2') num = 2;
+    else if(num1 == '3') num = 3;
+    else if(num1 == '4') num = 4;
+    else if(num1 == '5') num = 5;
+    else if(num1 == '6') num = 6;
+    else if(num1 == '7') num = 7;
+    else if(num1 == '8') num = 8;
+    else if(num1 == '9') num = 9;
+    else if(num1 == '0') num = 0;
+    return num;
+}//for prob 16, 20 and 22
+
+char project::convertNumToChar(int num1)
+{
+    char num;
+    if(num1 == 1) num = '1';
+    else if(num1 == 2) num = '2';
+    else if(num1 == 3) num = '3';
+    else if(num1 == 4) num = '4';
+    else if(num1 == 5) num = '5';
+    else if(num1 == 6) num = '6';
+    else if(num1 == 7) num = '7';
+    else if(num1 == 8) num = '8';
+    else if(num1 == 9) num = '9';
+    else if(num1 == 0) num = '0';
+
+    return num;
+}
+
+void project::first_1000_digit_fibonacci(){
+    string present = "1";
+    string previous = "0";
+    string temp = present;
+    string temp_sum = "";
+
+    int carry = 0;
+    int term = 1;
+    int range_pt = present.length();
+    int range_pv = previous.length();
+    while (range_pt < 1000)
+    {
+        if(range_pt > range_pv)
+        {
+            for(int i = 0; i < range_pt - range_pv; i++)
+            {
+                previous = "0" + previous;
+            }
+            range_pv = previous.length();
+        }
+
+        for(int i = range_pt - 1; i >= 0; i--)
+        {
+            int num_a = convertCharToNum(present.at(i));
+            int num_b = convertCharToNum(previous.at(i));
+            int sum = num_a + num_b + carry;
+            carry = 0;
+
+            if(sum > 9)
+            {
+                int a = sum%10;
+                sum -= a;
+                carry = sum/10;
+                temp_sum = convertNumToChar(a) + temp_sum;
+            }
+
+            else
+            {
+                temp_sum = convertNumToChar(sum) + temp_sum;
+            }
+
+            if(carry != 0 && i == 0)
+            {
+                temp_sum = convertNumToChar(carry) + temp_sum;
+                carry = 0;
+            }
+        }
+
+        temp = present;
+        present = temp_sum;
+        previous = temp;
+        term++;
+        temp_sum = "";
+        range_pt = present.length();
+        range_pv = previous.length();
+    }
+    cout <<  term << endl;
+}
+int project::right(int i)
+{
+    ostringstream convert;
+    convert << i;
+    string x = convert.str();
+    int temp;
+    int remainder;
+    int divide = 10;
+    int times = 1;
+    bool prime = true;
+    int range = x.length();
+
+
+    for(int k = 0; k < range - 1 ; k++)
+    {
+        if(x.at(0) == '1' || x.at(0) == '4' || x.at(0) == '6' || x.at(0) == '8')
+        {
+            prime = false;
+            break;
+        }
+
+        divide = divide*times;
+        remainder = i%divide;
+        temp = i - remainder;
+        temp = temp/divide;
+
+        if(temp == 1)
+        {
+            prime = false;
+            break;
+        }
+
+        for(int j = 2; j < temp; j++)
+        {
+            if(temp%j == 0)
+            {
+                prime = false;
+                k = range;
+                break;
+            }
+        }
+
+        times *= 10;
+    }
+
+    return prime;
+}//for soln23
+
+int project::left(int i)
+{
+    ostringstream convert;
+    convert << i;
+    string x = convert.str();
+    bool prime = true;
+    int range = x.length();
+    int divide = 1;
+    int temp;
+    for(int k = 0; k < range; k++)
+    {
+        divide *= 10;
+    }
+
+    for(int k = 0; k < range; k++)
+    {
+
+        temp = i%divide;
+
+        if(temp == 1)
+        {
+            prime = false;
+            break;
+        }
+
+        for(int j = 2; j < temp; j++)
+        {
+            if(temp%j == 0)
+            {
+                k = range;
+                prime = false;
+                break;
+            }
+        }
+
+        divide /= 10;
+    }
+    return prime;
+}//for soln23
+
+void project::truncable_primes(){
+    int number = 23;
+    int term = 0;
+    int sum = 0;
+    bool ok;
+    while(term < 11)
+    {
+        ok = true;
+        for(int a = 2; a < number; a++)
+        {
+            if(number%a == 0)
+            {
+                ok = false;
+                break;
+            }
+        }
+
+        if(ok)
+        {
+            if(right(number) && left(number))
+            {
+                sum += number;
+                term++;
+            }
+        }
+
+        number += 2;
+    }
+
+    cout << sum << "  total" << endl;
+}
+
