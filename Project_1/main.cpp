@@ -32,10 +32,13 @@ const string PROBLEMS[]={
     "Maximum Path Sum I",
     "Counting Sundays",
     "Factorial Digit Sum",
+    "Name Score",
+    "1000-digit Fibonacci Number",
+    "Truncatable primes",
     "Exit"
 };
 
-const int NUM_PROBLEMS = 20;
+const int NUM_PROBLEMS = 23;
 
 const int EXIT = NUM_PROBLEMS + 1;
 int main (){
@@ -177,10 +180,28 @@ int main (){
                 system("pause");
                 break;
 
+            case 21:
+
+                pro.name_score();
+                system("pause");
+                break;
+
+            case 22:
+
+                pro.first_1000_digit_fibonacci();
+                system("pause");
+                break;
+
+            case 23:
+
+                pro.truncable_primes();
+                system("pause");
+                break;
+
 
             case EXIT:
-            done=true;
-            break;
+                done=true;
+                break;
         }
     }//closing bracket of while
 return 0;
